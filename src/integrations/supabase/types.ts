@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      prenotazioni: {
+        Row: {
+          camera: string
+          check_in: string
+          check_out: string
+          colazione: boolean
+          created_at: string
+          id: string
+          note: string | null
+          ospiti: number
+          stato: string
+          user_id: string
+        }
+        Insert: {
+          camera: string
+          check_in: string
+          check_out: string
+          colazione?: boolean
+          created_at?: string
+          id?: string
+          note?: string | null
+          ospiti?: number
+          stato?: string
+          user_id: string
+        }
+        Update: {
+          camera?: string
+          check_in?: string
+          check_out?: string
+          colazione?: boolean
+          created_at?: string
+          id?: string
+          note?: string | null
+          ospiti?: number
+          stato?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          nome: string | null
+          telefono: string | null
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          nome?: string | null
+          telefono?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          nome?: string | null
+          telefono?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
