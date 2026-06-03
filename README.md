@@ -1,5 +1,4 @@
 # Borgo Cultura — Sito Web
- - Sito per visualizare: https://id-preview--9b99fd39-9bc8-489f-8ab8-cb51683d5e27.lovable.app/
 
 Sito ufficiale (demo) della pousada **Borgo Cultura**, immersa tra gli ulivi delle colline di **Arezzo**, in Toscana.
 
