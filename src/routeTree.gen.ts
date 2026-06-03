@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StoriaRouteImport } from './routes/storia'
+import { Route as PrenotaRouteImport } from './routes/prenota'
+import { Route as LuoghiRouteImport } from './routes/luoghi'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StoriaRoute = StoriaRouteImport.update({
+  id: '/storia',
+  path: '/storia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrenotaRoute = PrenotaRouteImport.update({
+  id: '/prenota',
+  path: '/prenota',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LuoghiRoute = LuoghiRouteImport.update({
+  id: '/luoghi',
+  path: '/luoghi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auth': typeof AuthRoute
+  '/contatti': typeof ContattiRoute
+  '/luoghi': typeof LuoghiRoute
+  '/prenota': typeof PrenotaRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auth': typeof AuthRoute
+  '/contatti': typeof ContattiRoute
+  '/luoghi': typeof LuoghiRoute
+  '/prenota': typeof PrenotaRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/auth': typeof AuthRoute
+  '/contatti': typeof ContattiRoute
+  '/luoghi': typeof LuoghiRoute
+  '/prenota': typeof PrenotaRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/auth'
+    | '/contatti'
+    | '/luoghi'
+    | '/prenota'
+    | '/storia'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/auth'
+    | '/contatti'
+    | '/luoghi'
+    | '/prenota'
+    | '/storia'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/auth'
+    | '/contatti'
+    | '/luoghi'
+    | '/prenota'
+    | '/storia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  AuthRoute: typeof AuthRoute
+  ContattiRoute: typeof ContattiRoute
+  LuoghiRoute: typeof LuoghiRoute
+  PrenotaRoute: typeof PrenotaRoute
+  StoriaRoute: typeof StoriaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/storia': {
+      id: '/storia'
+      path: '/storia'
+      fullPath: '/storia'
+      preLoaderRoute: typeof StoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prenota': {
+      id: '/prenota'
+      path: '/prenota'
+      fullPath: '/prenota'
+      preLoaderRoute: typeof PrenotaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/luoghi': {
+      id: '/luoghi'
+      path: '/luoghi'
+      fullPath: '/luoghi'
+      preLoaderRoute: typeof LuoghiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  AuthRoute: AuthRoute,
+  ContattiRoute: ContattiRoute,
+  LuoghiRoute: LuoghiRoute,
+  PrenotaRoute: PrenotaRoute,
+  StoriaRoute: StoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
